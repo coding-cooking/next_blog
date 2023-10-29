@@ -1,0 +1,1 @@
+export { default as ThemeContext, useThemeContext, type ThemeContextInterface } from "./theme"
