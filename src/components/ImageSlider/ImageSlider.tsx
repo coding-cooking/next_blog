@@ -7,13 +7,15 @@ import ImageThree from "../../../public/bgimag/pic3.jpg";
 import ImageFour from "../../../public/bgimag/pic4.jpg";
 import ImageFive from "../../../public/bgimag/pic5.jpg";
 import ImageSix from "../../../public/bgimag/pic6.jpg";
-import ImageSeven from "../../../public/bgimag/pic7.jpg";
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { breakpoints } from '@/styles/theme';
 import styles from "./ImageSlider.module.scss"
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+
 
 const ImageSlider = () => {
   const isLargeScreen = useMediaQuery(breakpoints.md);
@@ -27,9 +29,12 @@ const ImageSlider = () => {
   //   }
   // }, [isLargeScreen])
 
+
+
   return (
     <div className={styles.container}>
       <Swiper
+        className={styles.swiper}
         navigation={true} 
         modules={[Navigation]}
         // spaceBetween={50}
@@ -37,13 +42,12 @@ const ImageSlider = () => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide><Image src={ImageOne} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageTwo} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageThree} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageFour} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageFive} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageSix} alt='' /></SwiperSlide>
-        <SwiperSlide><Image src={ImageSeven} alt='' /></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageOne} alt=''  className={styles.img}/></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageTwo} alt='' className={styles.img} /></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageThree} alt='' className={styles.img} /></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageFour} alt='' className={styles.img} /></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageFive} alt='' className={styles.img} /></SwiperSlide>
+        <SwiperSlide className={styles.swiperslide}><Image src={ImageSix} alt='' className={styles.img} /></SwiperSlide>
       </Swiper>
     </div>
     
