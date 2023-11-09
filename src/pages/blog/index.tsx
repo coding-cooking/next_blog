@@ -1,6 +1,5 @@
-import Head from "next/head";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { GET_ALL_POSTS, GET_POST_BY_CATEGORY, Post } from "../../graphql/queries";
+import { GET_ALL_POSTS, Post } from "../../graphql/queries";
 import Link from "next/link";
 import { useThemeContext } from "@/context";
 import styles from "./Blog.module.scss";
@@ -12,8 +11,6 @@ export const client = new ApolloClient({
 });
 
 type BlogProps = {
-    // codingPosts: Post[],
-    // lifePosts: Post[],
     posts: Post[],
 }
 
@@ -42,9 +39,8 @@ export default function Blog({posts }: BlogProps) {
                 <ul className={styles.blogList}>
 
                     {
-                        selectedCategory ?
-
-                            (selectedPosts?.map((post) => <li key={post.attributes.title}>
+                        selectedCategory 
+                            ? (selectedPosts?.map((post) => <li key={post.attributes.title}>
                                 <div className={styles.postWrapper}>
                                     <Link href={`/blog/${post.attributes.urlSlug}`}>
                                         <h3>{post.attributes.title}</h3>
@@ -66,11 +62,8 @@ export default function Blog({posts }: BlogProps) {
                                 </li>
                                 )
                             )
-
                     }
-
                 </ul>
-
             </div>
        </div>
     )

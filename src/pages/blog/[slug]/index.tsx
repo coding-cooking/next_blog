@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 	try {
 		const { data } = await client.query({ query: GET_ALL_SLUGS });
 
-		const paths = data.blogPosts.data.map((post: { attributes: { urlSlug: any; }; }) => ({
+		const paths = data.blogPosts.data.map((post: { attributes: { urlSlug: string; }; }) => ({
 			params: {
 				slug: post.attributes.urlSlug,
 			},
