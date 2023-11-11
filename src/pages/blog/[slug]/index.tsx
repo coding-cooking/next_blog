@@ -2,7 +2,6 @@ import { useThemeContext } from "@/context";
 import { GET_ALL_SLUGS, GET_INDIVIDUAL_POST } from "../../../graphql/queries";
 import { client } from "../index";
 import styles from "./Article.module.scss";
-import { Post } from "../../../graphql/queries";
 
 type PostProps = {
 	post: {
@@ -36,7 +35,6 @@ export default function Post({ post }: PostProps) {
 			</div>
 		);
 	} catch (e) {
-		console.log("this errr", e);
 		return <div>Oops </div>;
 	}
 }
@@ -65,8 +63,8 @@ export async function getStaticPaths() {
 }
 
 type ParamsProps = {
-	params: 
-		{slug: string},
+	params:
+	{ slug: string },
 }
 
 export async function getStaticProps({ params }: ParamsProps) {
@@ -77,7 +75,7 @@ export async function getStaticProps({ params }: ParamsProps) {
 		});
 
 		const attrs = data.blogPosts.data[0].attributes;
-		
+
 		// const _html = await serialize(attrs.content);
 
 		return {
