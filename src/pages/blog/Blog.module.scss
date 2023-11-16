@@ -1,6 +1,7 @@
 .container {
     min-height: calc(100vh - 100px);
 }
+
 .blogWrapper {
     overflow: scroll;
     margin: 0 auto;
@@ -8,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     
     .selector {
         margin-top: 30px;
@@ -26,16 +26,16 @@
             font-size: 30px;
             cursor: pointer;
             &:hover {
-                color: rgba(13, 208, 13, 1);
+                color: rgba(64, 109, 4, 1);
                 scale: 1.1;
                 transition: all 0.2s ease-in-out;
             }
             @media only screen and (max-width: 767px) {
                 font-size: 24px;
             }
-        }
-        
+        }    
     }
+    
     .blogList {
         width: 50vw;
         margin: 0;
